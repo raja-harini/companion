@@ -1,0 +1,14 @@
+AIzaSyDNRHZ0bLIfV-7-FJK3V0_O4i11de4-12A
+7722919054:AAFYKU9dSpg-i_xTBpFJk66qzHdwV0Hd8f0
+6338596536
+
+genai.configure(api_key="AIzaSyDO7EKTLsNmC6w4mLcwnFz-grQnqtXBQnk")  # Replace with your actual API key
+
+# Google Maps API Key
+API_KEY = "AIzaSyDNRHZ0bLIfV-7-FJK3V0_O4i11de4-12A"  # Replace with your actual API key
+DEFAULT_LOCATION = "Saveetha Engineering College, Chennai, Tamil Nadu"
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\\Users\\admin\\Desktop\\stt\\New folder\\text-to-speech-455413-09c4f83b2fbd.json"
+
+MAPS_API_KEY = "AIzaSyDNRHZ0bLIfV-7-FJK3V0_O4i11de4-12A"  # Replace with your Google Maps API key
+TTS_JSON_PATH = r"C:\\Users\\admin\\Desktop\\stt\\New folder\\text-to-speech-455413-09c4f83b2fbd.json" 
