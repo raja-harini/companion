@@ -13,20 +13,24 @@ import winsound
 from bs4 import BeautifulSoup
 
 # --- Configuration ---
-GOOGLE_TTS_JSON = r"C:\\Users\\admin\\Desktop\\stt\\project2\\text-to-speech-455413-09c4f83b2fbd.json"
+GOOGLE_TTS_JSON = r"C:\\Users\\admin\\Downloads\\voice_assist_app\\backend\\text-to-speech-455413-408c3a77c969.json"
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = GOOGLE_TTS_JSON
 
 MAPS_API_KEY = "AIzaSyDNRHZ0bLIfV-7-FJK3V0_O4i11de4-12A"
 gmaps = googlemaps.Client(key=MAPS_API_KEY)
 
-TELEGRAM_BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"
-TELEGRAM_CHAT_ID = "YOUR_TELEGRAM_CHAT_ID"
+TELEGRAM_BOT_TOKEN = "7722919054:AAFYKU9dSpg-i_xTBpFJk66fHdwV0Hd8f0"
+TELEGRAM_CHAT_ID = "6338596536"
 
-TWILIO_SID = "YOUR_TWILIO_SID"
-TWILIO_AUTH_TOKEN = "YOUR_TWILIO_AUTH_TOKEN"
+# Twilio
+TWILIO_SID = "ACb4fb756c1c4c5ccd0329ce491249379d"
+TWILIO_AUTH_TOKEN = "fb39bf375e2ad12b68f5901654c6daae"
 TWILIO_WHATSAPP_NUMBER = "whatsapp:+14155238886"
-EMERGENCY_CONTACT = "whatsapp:+91XXXXXXXXXX"
+EMERGENCY_CONTACT = "whatsapp:+917338995840"
 
+  # default
+
+# REMOVE or comment this
 latitude = "12.9715987"
 longitude = "77.5945627"
 location_link = f"https://www.google.com/maps/search/?api=1&query={latitude},{longitude}"
@@ -141,19 +145,19 @@ def start_navigation():
 def send_sos(button):
     client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
     if button == 1:
-        msg = "🚨 POLICE CALL 🚨"
+        msg = " POLICE CALL "
         number = "100"
     elif button == 2:
-        msg = "🚑 AMBULANCE CALL 🚑"
+        msg = " AMBULANCE CALL "
         number = "108"
     elif button == 3:
-        msg = "🔥 FIRE DEPT CALL 🔥"
+        msg = " FIRE DEPT CALL "
         number = "101"
     else:
-        msg = "❌ UNKNOWN EMERGENCY ❌"
+        msg = " UNKNOWN EMERGENCY "
         number = "N/A"
 
-    body = f"{msg}\nHelp Needed!\n📍 Location: {location_link}\n📞 Emergency Number: {number}"
+    body = f"{msg}\nHelp Needed!\n Location: {location_link}\n Emergency Number: {number}"
     client.messages.create(body=body, from_=TWILIO_WHATSAPP_NUMBER, to=EMERGENCY_CONTACT)
     speak(f"{msg} message has been sent.")
 

@@ -7,7 +7,7 @@ from google.cloud import texttospeech
 from playsound import playsound
 
 # Set Google Cloud credentials
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "text-to-speech-455413-09c4f83b2fbd.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\\Users\\admin\\Downloads\\voice_assist_app\\backend\\text-to-speech-455413-408c3a77c969.json"
 
 # Telegram Bot Credentials
 TELEGRAM_BOT_TOKEN = "7722919054:AAFYKU9dSpg-i_xTBpFJk66qzHdwV0Hd8f0"
@@ -62,7 +62,7 @@ while True:
     temperature = health_data["temperature"]
     pulse = health_data["pulse"]
 
-    print(f"💓 Heart Rate: {heart_rate} BPM | 🌡️ Temperature: {temperature}°C | 🔄 Pulse: {pulse} BPM")
+    print(f" Heart Rate: {heart_rate} BPM |  Temperature: {temperature}°C |  Pulse: {pulse} BPM")
 
     alerts = []
     if heart_rate < 55 or heart_rate > 120:
@@ -74,7 +74,7 @@ while True:
 
     if alerts:
         alert_message = "\n".join(alerts)
-        print("🚨 ALERT:", alert_message)
+        print(" ALERT:", alert_message)
 
         # Send alert to Telegram
         send_telegram_alert(alert_message)

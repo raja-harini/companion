@@ -13,7 +13,7 @@ import winsound
 from bs4 import BeautifulSoup
 
 # --- Configurations ---
-GOOGLE_TTS_JSON = r"C:\\Users\\admin\\Desktop\\stt\\project2\\text-to-speech-455413-09c4f83b2fbd.json"
+GOOGLE_TTS_JSON = r"C:\\Users\\admin\\Downloads\\voice_assist_app\\backend\\text-to-speech-455413-408c3a77c969.json"
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = GOOGLE_TTS_JSON
 
 # Google Maps API
@@ -26,11 +26,12 @@ TELEGRAM_CHAT_ID = "6338596536"
 
 # Twilio
 TWILIO_SID = "ACb4fb756c1c4c5ccd0329ce491249379d"
-TWILIO_AUTH_TOKEN = "2995cd7cec404f455524193d0dbf64b6"
+TWILIO_AUTH_TOKEN = "fb39bf375e2ad12b68f5901654c6daae"
 TWILIO_WHATSAPP_NUMBER = "whatsapp:+14155238886"
 EMERGENCY_CONTACT = "whatsapp:+917338995840"
 
 # Location
+# REMOVE or comment this
 latitude = "12.9715987"
 longitude = "77.5945627"
 location_link = f"https://www.google.com/maps/search/?api=1&query={latitude},{longitude}"
@@ -171,19 +172,19 @@ def start_navigation():
 def send_sos(button):
     client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
     if button == 1:
-        msg = "🚨 POLICE CALL 🚨"
+        msg = " POLICE CALL "
         number = "100"
     elif button == 2:
-        msg = "🚑 AMBULANCE CALL 🚑"
+        msg = " AMBULANCE CALL "
         number = "108"
     elif button == 3:
-        msg = "🔥 FIRE DEPT CALL 🔥"
+        msg = " FIRE DEPT CALL "
         number = "101"
     else:
-        msg = "❌ UNKNOWN EMERGENCY ❌"
+        msg = " UNKNOWN EMERGENCY "
         number = "N/A"
 
-    body = f"{msg}\nHelp Needed!\n📍 Location: {location_link}\n📞 Emergency Number: {number}"
+    body = f"{msg}\nHelp Needed!\n Location: {location_link}\n Emergency Number: {number}"
     client.messages.create(body=body, from_=TWILIO_WHATSAPP_NUMBER, to=EMERGENCY_CONTACT)
     speak(f"{msg} குறுஞ்செய்தி அனுப்பப்பட்டுள்ளது.")
 
